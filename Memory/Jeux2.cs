@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-//using System.Timer;
 
 namespace Memory
 {
-    
-    public partial class Jeux : Form
+    public partial class Jeux2 : Form
     {
+
+
 
         static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
 
@@ -22,10 +22,10 @@ namespace Memory
         PictureBox firstGuess;
         Random rnd = new Random();
         Timer clickTimer = new Timer();
-        int time = 60;
+        int time = 30;
         Timer timer = new Timer { Interval = 1000 };
 
-        public Jeux()
+        public Jeux2()
         {
             InitializeComponent();
 
@@ -44,11 +44,8 @@ namespace Memory
                     Properties.Resources.img2,
                     Properties.Resources.img3,
                     Properties.Resources.img4,
-                    Properties.Resources.img5,
-                    Properties.Resources.img6,
-                    Properties.Resources.img7,
-                    Properties.Resources.img8
-            };
+                   
+                };
             }
         }
 
@@ -78,7 +75,7 @@ namespace Memory
             }
             HideImages();
             setRandomImages();
-            time = 60;
+            time = 30;
             timer.Start();
         }
 
@@ -153,12 +150,12 @@ namespace Memory
             firstGuess = null;
             if (pictureBoxes.Any(p => p.Visible)) return;
             timer.Stop();
-            
+
             MessageBox.Show("Vous avez gagné ");
 
             SqlConnection connection = new SqlConnection(SqlConnectionString);
             connection.Open();
-            SqlCommand insererenTempsFin = new SqlCommand ("INSERT INTO Partie(Fin_P) VALUES (@temps)",connection);
+            SqlCommand insererenTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P) VALUES (@temps)", connection);
             var temps = new SqlParameter("@temps", time);
             insererenTempsFin.Parameters.Add(temps);
             insererenTempsFin.ExecuteNonQuery();

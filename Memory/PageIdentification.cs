@@ -54,7 +54,7 @@ namespace Memory
             connection.Close();
             
             
-            MessageBox.Show("Autentification ok vous pouvez jouez");
+            MessageBox.Show("Autentification ok ,choisir niveau de difficulté");
             Nom.Text = "";
             Prenom.Text = "";
             Adresse.Text = "";
@@ -91,13 +91,26 @@ namespace Memory
         {
 
 
-            Jeux1 jeux = new Jeux1();
+            Jeux jeux = new Jeux();
             jeux.Show();
             Hide();
 
         }
 
-       
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            Jeux1 jeux = new Jeux1();
+            jeux.Show();
+            Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Jeux2 jeux = new Jeux2();
+            jeux.Show();
+            Hide();
+        }
     }
 
 }

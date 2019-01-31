@@ -176,6 +176,11 @@ namespace Memory
             button1.Enabled = false;
         }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PageIdentification pageIdentification = new PageIdentification();
+            pageIdentification.Show();
+            Hide();
+        }
     }
 }

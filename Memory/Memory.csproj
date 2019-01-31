@@ -52,6 +52,12 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jeux2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jeux2.Designer.cs">
+      <DependentUpon>Jeux2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Jeux.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Jeux1.resx">
       <DependentUpon>Jeux1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jeux2.resx">
+      <DependentUpon>Jeux2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageIdentification.resx">
       <DependentUpon>PageIdentification.cs</DependentUpon>
