@@ -36,10 +36,24 @@ namespace Memory
         {
             SqlConnection connection = new SqlConnection(SqlConnectionString);
             connection.Open();
-            SqlCommand firstInsert = connection.CreateCommand();
-            firstInsert.CommandText = "INSERT INTO Joueurs(Nom_J, Prenom_J, Adresse_J,Sexe_J,Pseudo_J,MdP_J) VALUES ('" + Nom.Text + "','" + Prenom.Text + "','" + Adresse.Text + "','" + Sexe.Text + "','" + Pseudo.Text + "','" + MdP.Text + "')";
+            SqlCommand firstInsert =
+                 new SqlCommand ("INSERT INTO Joueurs (Nom_J, Prenom_J, Adresse_J , Sexe_J , Pseudo_J , MdP_J) VALUES (@Nom,@Prenom,@Adresse,@Sexe,@Pseudo,@MdP)",connection); 
+            var nomParameter = new SqlParameter("@Nom", Nom.Text);
+            var prenomParameter = new SqlParameter("@Prenom", Prenom.Text);
+            var adresseParameter = new SqlParameter("@Adresse", Adresse.Text);
+            var sexeParameter = new SqlParameter("@Sexe", Sexe.Text);
+            var pseudoParameter = new SqlParameter("@Pseudo", Pseudo.Text);
+            var mdpParameter = new SqlParameter("@MdP", MdP.Text);
+            firstInsert.Parameters.Add(nomParameter);
+            firstInsert.Parameters.Add(prenomParameter);
+            firstInsert.Parameters.Add(adresseParameter);
+            firstInsert.Parameters.Add(sexeParameter);
+            firstInsert.Parameters.Add(pseudoParameter);
+            firstInsert.Parameters.Add(mdpParameter);
             firstInsert.ExecuteNonQuery();
             connection.Close();
+            
+            
             MessageBox.Show("Autentification ok vous pouvez jouez");
             Nom.Text = "";
             Prenom.Text = "";
@@ -77,12 +91,13 @@ namespace Memory
         {
 
 
-
             Jeux jeux = new Jeux();
             jeux.Show();
             Hide();
 
         }
+
+       
     }
 
 }

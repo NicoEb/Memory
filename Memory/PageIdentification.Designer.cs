@@ -112,6 +112,7 @@
             this.Sexe.Name = "Sexe";
             this.Sexe.Size = new System.Drawing.Size(100, 20);
             this.Sexe.TabIndex = 6;
+           // this.Sexe.TextChanged += new System.EventHandler(this.Sexe_TextChanged);
             // 
             // label5
             // 
@@ -236,7 +237,6 @@
             this.Controls.Add(this.Nom);
             this.Name = "PageIdentification";
             this.Text = "PageAuthentification";
-            this.Click += new System.EventHandler(this.button1_Click_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

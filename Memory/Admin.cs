@@ -68,6 +68,7 @@ namespace JeuxMemory
             connection.Close();
 
             MessageBox.Show("Utilisateur supprimé");
+            //comboBox2.Text ="";
         }
     }
 }

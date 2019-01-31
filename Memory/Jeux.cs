@@ -148,8 +148,8 @@ namespace Memory
             firstGuess = null;
             if (pictureBoxes.Any(p => p.Visible)) return;
             timer.Stop();
-            //timers.Elapsed();
-            MessageBox.Show("Vous avez gagné "); //+ //timer.Elapsed);
+            
+            MessageBox.Show("Vous avez gagné "); 
         }
 
         private void startGame(object sender, EventArgs e)
