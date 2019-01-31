@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 //using System.Timer;
 
 namespace Memory
 {
+    
     public partial class Jeux : Form
     {
+
+        static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
+
         bool allowClick = false;
         PictureBox firstGuess;
         Random rnd = new Random();
@@ -149,7 +154,15 @@ namespace Memory
             if (pictureBoxes.Any(p => p.Visible)) return;
             timer.Stop();
             
-            MessageBox.Show("Vous avez gagné "); 
+            MessageBox.Show("Vous avez gagné ");
+
+            SqlConnection connection = new SqlConnection(SqlConnectionString);
+            connection.Open();
+            SqlCommand insererenTempsFin = new SqlCommand ("INSERT INTO Partie(Fin_P) VALUES (@temps)",connection);
+            var temps = new SqlParameter("@temps", time);
+            insererenTempsFin.Parameters.Add(temps);
+            insererenTempsFin.ExecuteNonQuery();
+            connection.Close();
         }
 
         private void startGame(object sender, EventArgs e)
