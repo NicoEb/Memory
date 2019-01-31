@@ -91,7 +91,7 @@ namespace Memory
         {
 
 
-            Jeux jeux = new Jeux();
+            Jeux1 jeux = new Jeux1();
             jeux.Show();
             Hide();
 
