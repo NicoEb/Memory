@@ -189,7 +189,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "Expert";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.ButtonExpert);
             // 
             // button1
             // 
@@ -199,7 +199,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Authentification";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.ButtonAuthentification);
             // 
             // button3
             // 
@@ -209,7 +209,7 @@
             this.button3.TabIndex = 18;
             this.button3.Text = "Admin";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Administrateur_Click);
+            this.button3.Click += new System.EventHandler(this.ButtonAdministrateur);
             // 
             // button4
             // 
@@ -219,7 +219,7 @@
             this.button4.TabIndex = 19;
             this.button4.Text = "Intermédiaire";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.ButtonIntermediaire);
             // 
             // button5
             // 
@@ -229,7 +229,7 @@
             this.button5.TabIndex = 20;
             this.button5.Text = "Débutant";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.ButtonDebutant);
             // 
             // PageIdentification
             // 

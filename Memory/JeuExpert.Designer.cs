@@ -1,6 +1,6 @@
 ﻿namespace Memory
 {
-    partial class Jeux
+    partial class JeuExpert
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ButtonJouer = new System.Windows.Forms.Button();
+            this.Chrono = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -65,25 +65,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // ButtonJouer
             // 
-            this.button1.Location = new System.Drawing.Point(40, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 36);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Jouer";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.startGame);
+            this.ButtonJouer.Location = new System.Drawing.Point(40, 25);
+            this.ButtonJouer.Name = "ButtonJouer";
+            this.ButtonJouer.Size = new System.Drawing.Size(100, 36);
+            this.ButtonJouer.TabIndex = 0;
+            this.ButtonJouer.Text = "Jouer";
+            this.ButtonJouer.UseVisualStyleBackColor = true;
+            this.ButtonJouer.Click += new System.EventHandler(this.StartGame);
             // 
-            // label1
+            // Chrono
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "00:60";
+            this.Chrono.AutoSize = true;
+            this.Chrono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chrono.Location = new System.Drawing.Point(46, 82);
+            this.Chrono.Name = "Chrono";
+            this.Chrono.Size = new System.Drawing.Size(49, 18);
+            this.Chrono.TabIndex = 1;
+            this.Chrono.Text = "00:60";
             // 
             // pictureBox1
             // 
@@ -93,7 +93,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox1.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox2
             // 
@@ -103,7 +103,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox2.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox3
             // 
@@ -113,7 +113,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox3.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox4
             // 
@@ -123,7 +123,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox4.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox5
             // 
@@ -133,7 +133,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 6;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox5.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox6
             // 
@@ -143,7 +143,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 7;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox6.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox7
             // 
@@ -153,7 +153,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 8;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox7.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox8
             // 
@@ -163,7 +163,7 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 9;
             this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox8.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox9
             // 
@@ -173,7 +173,7 @@
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 10;
             this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox9.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox10
             // 
@@ -183,7 +183,7 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 11;
             this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox10.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox11
             // 
@@ -193,7 +193,7 @@
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox11.TabIndex = 12;
             this.pictureBox11.TabStop = false;
-            this.pictureBox11.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox11.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox12
             // 
@@ -203,7 +203,7 @@
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox12.TabIndex = 13;
             this.pictureBox12.TabStop = false;
-            this.pictureBox12.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox12.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox13
             // 
@@ -213,7 +213,7 @@
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox13.TabIndex = 14;
             this.pictureBox13.TabStop = false;
-            this.pictureBox13.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox13.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox14
             // 
@@ -223,7 +223,7 @@
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox14.TabIndex = 15;
             this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox14.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox15
             // 
@@ -233,7 +233,7 @@
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox15.TabIndex = 16;
             this.pictureBox15.TabStop = false;
-            this.pictureBox15.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox15.Click += new System.EventHandler(this.ClickImage);
             // 
             // pictureBox16
             // 
@@ -243,7 +243,7 @@
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox16.TabIndex = 17;
             this.pictureBox16.TabStop = false;
-            this.pictureBox16.Click += new System.EventHandler(this.clickImage);
+            this.pictureBox16.Click += new System.EventHandler(this.ClickImage);
             // 
             // button2
             // 
@@ -253,9 +253,9 @@
             this.button2.TabIndex = 18;
             this.button2.Text = "Retour";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.ButtonRetour);
             // 
-            // Jeux
+            // JeuxExpert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -277,10 +277,10 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Name = "Jeux";
-            this.Text = "Form1";
+            this.Controls.Add(this.Chrono);
+            this.Controls.Add(this.ButtonJouer);
+            this.Name = "JeuxExpert";
+            this.Text = "JeuxExpert";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -304,8 +304,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ButtonJouer;
+        private System.Windows.Forms.Label Chrono;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;

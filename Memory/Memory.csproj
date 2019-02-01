@@ -52,23 +52,23 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jeux2.cs">
+    <Compile Include="JeuDebutant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Jeux2.Designer.cs">
-      <DependentUpon>Jeux2.cs</DependentUpon>
+    <Compile Include="JeuDebutant.Designer.cs">
+      <DependentUpon>JeuDebutant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jeux.cs">
+    <Compile Include="JeuExpert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Jeux.Designer.cs">
-      <DependentUpon>Jeux.cs</DependentUpon>
+    <Compile Include="JeuExpert.Designer.cs">
+      <DependentUpon>JeuExpert.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jeux1.cs">
+    <Compile Include="JeuIntermediaire.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Jeux1.Designer.cs">
-      <DependentUpon>Jeux1.cs</DependentUpon>
+    <Compile Include="JeuIntermediaire.Designer.cs">
+      <DependentUpon>JeuIntermediaire.cs</DependentUpon>
     </Compile>
     <Compile Include="PageIdentification.cs">
       <SubType>Form</SubType>
@@ -81,14 +81,14 @@
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Jeux.resx">
-      <DependentUpon>Jeux.cs</DependentUpon>
+    <EmbeddedResource Include="JeuExpert.resx">
+      <DependentUpon>JeuExpert.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Jeux1.resx">
-      <DependentUpon>Jeux1.cs</DependentUpon>
+    <EmbeddedResource Include="JeuIntermediaire.resx">
+      <DependentUpon>JeuIntermediaire.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Jeux2.resx">
-      <DependentUpon>Jeux2.cs</DependentUpon>
+    <EmbeddedResource Include="JeuDebutant.resx">
+      <DependentUpon>JeuDebutant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageIdentification.resx">
       <DependentUpon>PageIdentification.cs</DependentUpon>

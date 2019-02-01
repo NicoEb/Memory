@@ -22,17 +22,9 @@ namespace Memory
         static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
 
 
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
+       
 
-        //}
-
-        //private void label2_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void ButtonAuthentification(object sender, EventArgs e)
         {
             if (Nom.Text == "")
             {
@@ -69,24 +61,24 @@ namespace Memory
 
 
 
-                SqlConnection connection = new SqlConnection(SqlConnectionString);
-                connection.Open();
-                SqlCommand firstInsert =
-                     new SqlCommand("INSERT INTO Joueurs (Nom_J, Prenom_J, Adresse_J , Sexe_J , Pseudo_J , MdP_J) VALUES (@Nom,@Prenom,@Adresse,@Sexe,@Pseudo,@MdP)", connection);
-                var nomParameter = new SqlParameter("@Nom", Nom.Text);
-                var prenomParameter = new SqlParameter("@Prenom", Prenom.Text);
-                var adresseParameter = new SqlParameter("@Adresse", Adresse.Text);
-                var sexeParameter = new SqlParameter("@Sexe", Sexe.Text);
-                var pseudoParameter = new SqlParameter("@Pseudo", Pseudo.Text);
-                var mdpParameter = new SqlParameter("@MdP", MdP.Text);
-                firstInsert.Parameters.Add(nomParameter);
-                firstInsert.Parameters.Add(prenomParameter);
-                firstInsert.Parameters.Add(adresseParameter);
-                firstInsert.Parameters.Add(sexeParameter);
-                firstInsert.Parameters.Add(pseudoParameter);
-                firstInsert.Parameters.Add(mdpParameter);
-                firstInsert.ExecuteNonQuery();
-                connection.Close();
+                SqlConnection Connection = new SqlConnection(SqlConnectionString);
+                Connection.Open();
+                SqlCommand FirstInsert =
+                     new SqlCommand("INSERT INTO Joueurs (Nom_J, Prenom_J, Adresse_J , Sexe_J , Pseudo_J , MdP_J) VALUES (@Nom,@Prenom,@Adresse,@Sexe,@Pseudo,@MdP)", Connection);
+                var NomParameter = new SqlParameter("@Nom", Nom.Text);
+                var PrenomParameter = new SqlParameter("@Prenom", Prenom.Text);
+                var AdresseParameter = new SqlParameter("@Adresse", Adresse.Text);
+                var SexeParameter = new SqlParameter("@Sexe", Sexe.Text);
+                var PseudoParameter = new SqlParameter("@Pseudo", Pseudo.Text);
+                var MdpParameter = new SqlParameter("@MdP", MdP.Text);
+                FirstInsert.Parameters.Add(NomParameter);
+                FirstInsert.Parameters.Add(PrenomParameter);
+                FirstInsert.Parameters.Add(AdresseParameter);
+                FirstInsert.Parameters.Add(SexeParameter);
+                FirstInsert.Parameters.Add(PseudoParameter);
+                FirstInsert.Parameters.Add(MdpParameter);
+                FirstInsert.ExecuteNonQuery();
+                Connection.Close();
 
 
                 MessageBox.Show("Autentification ok ,choisir niveau de difficulté");
@@ -102,13 +94,13 @@ namespace Memory
 
         }
 
-        private void Administrateur_Click(object sender, EventArgs e)
+        private void ButtonAdministrateur(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(SqlConnectionString);
-            SqlDataAdapter select = new SqlDataAdapter("Select * From LoginAd where log ='" + textBox1.Text + "' and passowrd ='" + textBox2.Text + "'", con);
-            DataTable dt = new DataTable();
-            select.Fill(dt);
-            if (dt.Rows.Count == 1)
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            SqlDataAdapter Select = new SqlDataAdapter("Select * From LoginAd where log ='" + textBox1.Text + "' and passowrd ='" + textBox2.Text + "'", Connection);
+            DataTable Dt = new DataTable();
+            Select.Fill(Dt);
+            if (Dt.Rows.Count == 1)
             {
                 Hide();
                 Admin admin = new Admin();
@@ -123,28 +115,28 @@ namespace Memory
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonExpert(object sender, EventArgs e)
         {
 
 
-            Jeux jeux = new Jeux();
-            jeux.Show();
+            JeuExpert jeu = new JeuExpert();
+            jeu.Show();
             Hide();
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void ButtonIntermediaire(object sender, EventArgs e)
         {
 
-            Jeux1 jeux = new Jeux1();
-            jeux.Show();
+            JeuIntermediaire jeu = new JeuIntermediaire();
+            jeu.Show();
             Hide();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void ButtonDebutant(object sender, EventArgs e)
         {
-            Jeux2 jeux = new Jeux2();
-            jeux.Show();
+            JeuDebutant jeu = new JeuDebutant();
+            jeu.Show();
             Hide();
         }
     }

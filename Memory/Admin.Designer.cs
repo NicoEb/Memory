@@ -42,7 +42,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Supprimer";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.ButtonSupprimer);
             // 
             // BtRetour
             // 
@@ -52,7 +52,7 @@
             this.BtRetour.TabIndex = 6;
             this.BtRetour.Text = "Retour";
             this.BtRetour.UseVisualStyleBackColor = true;
-            this.BtRetour.Click += new System.EventHandler(this.BtRetour_Click);
+            this.BtRetour.Click += new System.EventHandler(this.ButtonRetour);
             // 
             // sup_J
             // 
