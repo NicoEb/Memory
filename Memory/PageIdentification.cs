@@ -34,35 +34,71 @@ namespace Memory
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(SqlConnectionString);
-            connection.Open();
-            SqlCommand firstInsert =
-                 new SqlCommand ("INSERT INTO Joueurs (Nom_J, Prenom_J, Adresse_J , Sexe_J , Pseudo_J , MdP_J) VALUES (@Nom,@Prenom,@Adresse,@Sexe,@Pseudo,@MdP)",connection); 
-            var nomParameter = new SqlParameter("@Nom", Nom.Text);
-            var prenomParameter = new SqlParameter("@Prenom", Prenom.Text);
-            var adresseParameter = new SqlParameter("@Adresse", Adresse.Text);
-            var sexeParameter = new SqlParameter("@Sexe", Sexe.Text);
-            var pseudoParameter = new SqlParameter("@Pseudo", Pseudo.Text);
-            var mdpParameter = new SqlParameter("@MdP", MdP.Text);
-            firstInsert.Parameters.Add(nomParameter);
-            firstInsert.Parameters.Add(prenomParameter);
-            firstInsert.Parameters.Add(adresseParameter);
-            firstInsert.Parameters.Add(sexeParameter);
-            firstInsert.Parameters.Add(pseudoParameter);
-            firstInsert.Parameters.Add(mdpParameter);
-            firstInsert.ExecuteNonQuery();
-            connection.Close();
-            
-            
-            MessageBox.Show("Autentification ok ,choisir niveau de difficulté");
-            Nom.Text = "";
-            Prenom.Text = "";
-            Adresse.Text = "";
-            Sexe.Text = "";
-            Pseudo.Text = "";
-            MdP.Text = "";
+            if (Nom.Text == "")
+            {
+                MessageBox.Show("veuillez entrez votre nom");
+            }
+            else
+               if (Prenom.Text == "")
+            {
+                MessageBox.Show("veuillez entrez votre prénom");
+            }
+            else
+               if (Adresse.Text == "")
+            {
+                MessageBox.Show("veuillez entrez votre Adresse");
+            }
+            else
+               if (Sexe.Text == "")
+            {
+                MessageBox.Show("veuillez entrez votre Sexe");
+            }
+            else
+               if (Pseudo.Text == "")
+            {
+                MessageBox.Show("veuillez entrez un pseudo");
+            }
+            else
+               if (MdP.Text == "")
+            {
+                MessageBox.Show("veuillez entrez un mot de passe");
+            }
+            else
+            {
 
 
+
+
+                SqlConnection connection = new SqlConnection(SqlConnectionString);
+                connection.Open();
+                SqlCommand firstInsert =
+                     new SqlCommand("INSERT INTO Joueurs (Nom_J, Prenom_J, Adresse_J , Sexe_J , Pseudo_J , MdP_J) VALUES (@Nom,@Prenom,@Adresse,@Sexe,@Pseudo,@MdP)", connection);
+                var nomParameter = new SqlParameter("@Nom", Nom.Text);
+                var prenomParameter = new SqlParameter("@Prenom", Prenom.Text);
+                var adresseParameter = new SqlParameter("@Adresse", Adresse.Text);
+                var sexeParameter = new SqlParameter("@Sexe", Sexe.Text);
+                var pseudoParameter = new SqlParameter("@Pseudo", Pseudo.Text);
+                var mdpParameter = new SqlParameter("@MdP", MdP.Text);
+                firstInsert.Parameters.Add(nomParameter);
+                firstInsert.Parameters.Add(prenomParameter);
+                firstInsert.Parameters.Add(adresseParameter);
+                firstInsert.Parameters.Add(sexeParameter);
+                firstInsert.Parameters.Add(pseudoParameter);
+                firstInsert.Parameters.Add(mdpParameter);
+                firstInsert.ExecuteNonQuery();
+                connection.Close();
+
+
+                MessageBox.Show("Autentification ok ,choisir niveau de difficulté");
+                Nom.Text = "";
+                Prenom.Text = "";
+                Adresse.Text = "";
+                Sexe.Text = "";
+                Pseudo.Text = "";
+                MdP.Text = "";
+
+
+            }            
 
         }
 
