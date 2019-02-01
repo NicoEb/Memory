@@ -115,10 +115,10 @@ namespace Memory
             allowClick = true;
             clickTimer.Stop();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
+        //private void button1_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void clickImage(object sender, EventArgs e)
         {
@@ -171,6 +171,7 @@ namespace Memory
             clickTimer.Interval = 1000;
             clickTimer.Tick += CLICKTIMER_TICK;
             button1.Enabled = false;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
