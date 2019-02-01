@@ -22,7 +22,7 @@ namespace Memory
         PictureBox firstGuess;
         Random rnd = new Random();
         Timer clickTimer = new Timer();
-        int time = 30;
+        int time2 = 30;
         Timer timer = new Timer { Interval = 1000 };
 
         public Jeux2()
@@ -54,16 +54,16 @@ namespace Memory
             timer.Start();
             timer.Tick += delegate
             {
-                time--;
-                if (time < 0)
+                time2--;
+                if (time2 < 0)
                 {
                     timer.Stop();
                     MessageBox.Show("Temps écoulé");
                     ResetImages();
                 }
-                var ssTime = TimeSpan.FromSeconds(time);
+                var ssTime = TimeSpan.FromSeconds(time2);
 
-                label1.Text = "00: " + time.ToString();
+                label1.Text = "00: " + time2.ToString();
             };
         }
         private void ResetImages()
@@ -75,7 +75,7 @@ namespace Memory
             }
             HideImages();
             setRandomImages();
-            time = 30;
+            time2 = 30;
             timer.Start();
         }
 
@@ -156,7 +156,7 @@ namespace Memory
             SqlConnection connection = new SqlConnection(SqlConnectionString);
             connection.Open();
             SqlCommand insererenTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P) VALUES (@temps)", connection);
-            var temps = new SqlParameter("@temps", time);
+            var temps = new SqlParameter("@temps",(30 - time2));
             insererenTempsFin.Parameters.Add(temps);
             insererenTempsFin.ExecuteNonQuery();
             connection.Close();

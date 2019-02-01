@@ -159,7 +159,7 @@ namespace Memory
             SqlConnection connection = new SqlConnection(SqlConnectionString);
             connection.Open();
             SqlCommand insererenTempsFin = new SqlCommand ("INSERT INTO Partie(Fin_P) VALUES (@temps)",connection);
-            var temps = new SqlParameter("@temps", time);
+            var temps = new SqlParameter("@temps", (60 - time));
             insererenTempsFin.Parameters.Add(temps);
             insererenTempsFin.ExecuteNonQuery();
             connection.Close();
