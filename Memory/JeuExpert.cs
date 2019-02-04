@@ -48,7 +48,7 @@ namespace Memory
                     Properties.Resources.img6,
                     Properties.Resources.img7,
                     Properties.Resources.img8
-            };
+                };
             }
         }
 
@@ -63,6 +63,7 @@ namespace Memory
                     timer.Stop();
                     MessageBox.Show("Temps écoulé");
                     ResetImages();
+                    
                 }
                 var SsTime = TimeSpan.FromSeconds(Time);
 
@@ -139,6 +140,7 @@ namespace Memory
                 Pic.Visible = FirstGuess.Visible = false;
                 {
                     FirstGuess = Pic;
+                    ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) + 10);
                 }
                 HideImages();
             }
@@ -146,24 +148,28 @@ namespace Memory
             {
                 AllowClick = false;
                 ClickTimer.Start();
+                ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
             }
             FirstGuess = null;
             if (PictureBoxes.Any(p => p.Visible)) return;
             timer.Stop();
             
-            MessageBox.Show("Vous avez gagné ");
+            MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text));
 
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
-            SqlCommand InsererTempsFin = new SqlCommand ("INSERT INTO Partie(Fin_P) VALUES (@temps)",Connection);
+            SqlCommand InsererTempsFin = new SqlCommand ("INSERT INTO Partie(Fin_P,Score) VALUES (@temps,@score)",Connection);
             var temps = new SqlParameter("@temps", (60 - Time));
+            var scores = new SqlParameter("@score", ScoreCounter.Text);
             InsererTempsFin.Parameters.Add(temps);
+            InsererTempsFin.Parameters.Add(scores);
             InsererTempsFin.ExecuteNonQuery();
             Connection.Close();
         }
 
         private void StartGame(object sender, EventArgs e)
         {
+            ScoreCounter.Text = "0";
             AllowClick = true;
             SetRandomImages();
             HideImages();
@@ -178,6 +184,7 @@ namespace Memory
             PageIdentification pageIdentification = new PageIdentification();
             pageIdentification.Show();
             Hide();
+            timer.Stop();
         }
     }
 }

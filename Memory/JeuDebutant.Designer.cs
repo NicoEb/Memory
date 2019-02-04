@@ -39,6 +39,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Chrono = new System.Windows.Forms.Label();
             this.ButtonJouer = new System.Windows.Forms.Button();
+            this.ScoreCounter = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -57,6 +59,7 @@
             this.button2.TabIndex = 39;
             this.button2.Text = "Retour";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.ButtonRetour);
             // 
             // pictureBox8
             // 
@@ -158,11 +161,31 @@
             this.ButtonJouer.UseVisualStyleBackColor = true;
             this.ButtonJouer.Click += new System.EventHandler(this.StartGame);
             // 
-            // JeuxDebutant
+            // ScoreCounter
+            // 
+            this.ScoreCounter.AutoSize = true;
+            this.ScoreCounter.Location = new System.Drawing.Point(382, 86);
+            this.ScoreCounter.Name = "ScoreCounter";
+            this.ScoreCounter.Size = new System.Drawing.Size(13, 13);
+            this.ScoreCounter.TabIndex = 40;
+            this.ScoreCounter.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(334, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Score :";
+            // 
+            // JeuDebutant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ScoreCounter);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
@@ -174,8 +197,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Chrono);
             this.Controls.Add(this.ButtonJouer);
-            this.Name = "JeuxDebutant";
-            this.Text = "JeuExpert";
+            this.Name = "JeuDebutant";
+            this.Text = "JeuDebutant";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -202,5 +225,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Chrono;
         private System.Windows.Forms.Button ButtonJouer;
+        private System.Windows.Forms.Label ScoreCounter;
+        private System.Windows.Forms.Label label1;
     }
 }

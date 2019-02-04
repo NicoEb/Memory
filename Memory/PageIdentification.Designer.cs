@@ -259,7 +259,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Nom);
             this.Name = "PageIdentification";
-            this.Text = "PageAuthentification";
+            this.Text = "Jeu Memory";
             this.ResumeLayout(false);
             this.PerformLayout();
 

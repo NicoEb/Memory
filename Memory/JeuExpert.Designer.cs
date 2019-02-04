@@ -47,6 +47,8 @@
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ScoreCounter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -255,11 +257,31 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ButtonRetour);
             // 
-            // JeuxExpert
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(284, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Score :";
+            // 
+            // ScoreCounter
+            // 
+            this.ScoreCounter.AutoSize = true;
+            this.ScoreCounter.Location = new System.Drawing.Point(332, 48);
+            this.ScoreCounter.Name = "ScoreCounter";
+            this.ScoreCounter.Size = new System.Drawing.Size(13, 13);
+            this.ScoreCounter.TabIndex = 42;
+            this.ScoreCounter.Text = "0";
+            // 
+            // JeuExpert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 633);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ScoreCounter);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.pictureBox15);
@@ -279,7 +301,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Chrono);
             this.Controls.Add(this.ButtonJouer);
-            this.Name = "JeuxExpert";
+            this.Name = "JeuExpert";
             this.Text = "JeuxExpert";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -323,6 +345,8 @@
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ScoreCounter;
     }
 }
 

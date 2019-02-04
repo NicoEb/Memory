@@ -43,6 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonJouer = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ScoreCounter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -207,11 +209,31 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ButtonRetour);
             // 
-            // JeuxIntermediaire
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(417, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Score :";
+            // 
+            // ScoreCounter
+            // 
+            this.ScoreCounter.AutoSize = true;
+            this.ScoreCounter.Location = new System.Drawing.Point(465, 87);
+            this.ScoreCounter.Name = "ScoreCounter";
+            this.ScoreCounter.Size = new System.Drawing.Size(13, 13);
+            this.ScoreCounter.TabIndex = 42;
+            this.ScoreCounter.Text = "0";
+            // 
+            // JeuIntermediaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 586);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ScoreCounter);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox11);
@@ -227,7 +249,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonJouer);
-            this.Name = "JeuxIntermediaire";
+            this.Name = "JeuIntermediaire";
             this.Text = "JeuxIntermediaire";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -263,5 +285,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ButtonJouer;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ScoreCounter;
     }
 }

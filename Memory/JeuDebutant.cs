@@ -22,7 +22,8 @@ namespace Memory
         PictureBox FirstGuess;
         Random Rnd = new Random();
         Timer ClickTimer = new Timer();
-        int Time2 = 30;
+        int Time = 30;
+        
         Timer timer = new Timer { Interval = 1000 };
 
         public JeuDebutant()
@@ -54,16 +55,16 @@ namespace Memory
             timer.Start();
             timer.Tick += delegate
             {
-                Time2--;
-                if (Time2 < 0)
+                Time--;
+                if (Time < 0)
                 {
                     timer.Stop();
                     MessageBox.Show("Temps écoulé");
                     ResetImages();
                 }
-                var SsTime = TimeSpan.FromSeconds(Time2);
+                var SsTime = TimeSpan.FromSeconds(Time);
 
-                Chrono.Text = "00: " + Time2.ToString();
+                Chrono.Text = "00: " + Time.ToString();
             };
         }
         private void ResetImages()
@@ -75,7 +76,7 @@ namespace Memory
             }
             HideImages();
             SetRandomImages();
-            Time2 = 30;
+            Time = 30;
             timer.Start();
         }
 
@@ -136,6 +137,7 @@ namespace Memory
                 Pic.Visible = FirstGuess.Visible = false;
                 {
                     FirstGuess = Pic;
+                    ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) + 10);
                 }
                 HideImages();
             }
@@ -143,17 +145,18 @@ namespace Memory
             {
                 AllowClick = false;
                 ClickTimer.Start();
+                ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
             }
             FirstGuess = null;
             if (PictureBoxes.Any(p => p.Visible)) return;
             timer.Stop();
 
-            MessageBox.Show("Vous avez gagné ");
+            MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text));
 
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
             SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P) VALUES (@temps)", Connection);
-            var Temps = new SqlParameter("@temps",(30 - Time2));
+            var Temps = new SqlParameter("@temps", (30 - Time));
             InsererTempsFin.Parameters.Add(Temps);
             InsererTempsFin.ExecuteNonQuery();
             Connection.Close();
@@ -161,6 +164,7 @@ namespace Memory
 
         private void StartGame(object sender, EventArgs e)
         {
+            ScoreCounter.Text = "0";
             AllowClick = true;
             SetRandomImages();
             HideImages();
@@ -176,6 +180,7 @@ namespace Memory
             PageIdentification pageIdentification = new PageIdentification();
             pageIdentification.Show();
             Hide();
+            timer.Stop();
         }
     }
 }
