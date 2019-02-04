@@ -24,7 +24,7 @@ namespace Memory
 
        
 
-        private void ButtonAuthentification(object sender, EventArgs e)
+        private void ButtonAuthentification(object sender, EventArgs e) // permet de créer un joueur et de l'envoyer dans la base de données
         {
             if (Nom.Text == "")
             {
@@ -94,7 +94,7 @@ namespace Memory
 
         }
 
-        private void ButtonAdministrateur(object sender, EventArgs e)
+        private void ButtonAdministrateur(object sender, EventArgs e) // permet de s'identifier en tant qu'admin
         {
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             SqlDataAdapter Select = new SqlDataAdapter("Select * From LoginAd where log ='" + textBox1.Text + "' and passowrd ='" + textBox2.Text + "'", Connection);
@@ -115,7 +115,7 @@ namespace Memory
             }
         }
 
-        private void ButtonExpert(object sender, EventArgs e)
+        private void ButtonExpert(object sender, EventArgs e) // lance le jeu en mode expert
         {
 
 
@@ -125,7 +125,7 @@ namespace Memory
 
         }
 
-        private void ButtonIntermediaire(object sender, EventArgs e)
+        private void ButtonIntermediaire(object sender, EventArgs e) // lance le jeu en mode intermediaire
         {
 
             JeuIntermediaire jeu = new JeuIntermediaire();
@@ -133,7 +133,7 @@ namespace Memory
             Hide();
         }
 
-        private void ButtonDebutant(object sender, EventArgs e)
+        private void ButtonDebutant(object sender, EventArgs e) //lance le jeu en mode débutant
         {
             JeuDebutant jeu = new JeuDebutant();
             jeu.Show();

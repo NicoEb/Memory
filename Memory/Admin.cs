@@ -16,8 +16,7 @@ namespace JeuxMemory
     {
         static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
 
-        // rempli combobox avec liste des joueurs qui sont en BDD
-        public Admin()
+        public Admin() // Remplit combobox avec liste des joueurs qui sont en BDD
         {
             InitializeComponent();
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
@@ -45,8 +44,7 @@ namespace JeuxMemory
             pageIdentification.Show();
             Hide();
         }
-        //suppression joueur en base de donnée
-        private void ButtonSupprimer(object sender, EventArgs e)
+        private void ButtonSupprimer(object sender, EventArgs e) //Suppression joueur en base de donnée
         {
             
             string Message = comboBox2.SelectedItem.ToString();

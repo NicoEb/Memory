@@ -152,15 +152,17 @@ namespace Memory
             if (PictureBoxes.Any(p => p.Visible)) return;
             timer.Stop();
 
-            MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text));
+            MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text) + " points ");
 
-            //SqlConnection Connection = new SqlConnection(SqlConnectionString);
-            //Connection.Open();
-            //SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P) VALUES (@temps)", Connection);
-            //var Temps = new SqlParameter("@temps", (45 - Time));
-            //InsererTempsFin.Parameters.Add(Temps);
-            //InsererTempsFin.ExecuteNonQuery();
-            //Connection.Close();
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P,Score_P) VALUES (@temps,@score)", Connection);
+            var temps = new SqlParameter("@temps", (60 - Time));
+            var scores = new SqlParameter("@score", ScoreCounter.Text);
+            InsererTempsFin.Parameters.Add(temps);
+            InsererTempsFin.Parameters.Add(scores);
+            InsererTempsFin.ExecuteNonQuery();
+            Connection.Close();
         }
 
         private void StartGame(object sender, EventArgs e)

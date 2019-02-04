@@ -18,24 +18,25 @@ namespace Memory
 
         static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
 
-        bool AllowClick = false;
-        PictureBox FirstGuess;
-        Random Rnd = new Random();
-        Timer ClickTimer = new Timer();
-        int Time = 30;
+        bool AllowClick = false; // ce booléen autorise de cliquer
+        PictureBox FirstGuess; // objet premiere selection
+        Random Rnd = new Random(); // créer une instance générant un nombre aléatoire
+        Timer ClickTimer = new Timer(); // crée un nouveau timer
+        int Time = 30; // alloue la valeiur 30 au timer ci dessus
         
-        Timer timer = new Timer { Interval = 1000 };
+        Timer timer = new Timer { Interval = 1000 }; // intervalle de 1000 millisecondes ou 1 seconde pour le timer
 
-        public JeuDebutant()
+        public JeuDebutant() // création de la classe jeu débutant
         {
             InitializeComponent();
 
         }
-        private PictureBox[] PictureBoxes
+        private PictureBox[] PictureBoxes // on ajoute les pictures box a un tableau
         {
             get { return Controls.OfType<PictureBox>().ToArray(); }
         }
-        private static IEnumerable<Image> Images
+        
+        private static IEnumerable<Image> Images // Stocke les images et les lie au jeu
         {
             get
             {
@@ -50,7 +51,7 @@ namespace Memory
             }
         }
 
-        private void StartGameTimer()
+        private void StartGameTimer() // démarre le timer du jeu et affiche le temps restant
         {
             timer.Start();
             timer.Tick += delegate
@@ -67,7 +68,7 @@ namespace Memory
                 Chrono.Text = "00: " + Time.ToString();
             };
         }
-        private void ResetImages()
+        private void ResetImages() // remet le jeu a 0 quand le temps est écoulé
         {
             foreach (var Pic in PictureBoxes)
             {
@@ -80,7 +81,7 @@ namespace Memory
             timer.Start();
         }
 
-        private void HideImages()
+        private void HideImages() // met les images face cachée
         {
             foreach (var Pic in PictureBoxes)
             {
@@ -88,7 +89,7 @@ namespace Memory
             }
         }
 
-        private PictureBox GetFreeSlot()
+        private PictureBox GetFreeSlot() // place les images aléatoirement
         {
             int Num;
 
@@ -100,7 +101,7 @@ namespace Memory
             return PictureBoxes[Num];
         }
 
-        private void SetRandomImages()
+        private void SetRandomImages() // permet de trouver deux images correspondantes ou non
         {
             foreach (var Image in Images)
             {
@@ -109,7 +110,7 @@ namespace Memory
             }
         }
 
-        private void ClickTimer_Tick(object sender, EventArgs e)
+        private void ClickTimer_Tick(object sender, EventArgs e) // arrete le timer quand le jeu est fini
         {
             HideImages();
 
@@ -118,7 +119,7 @@ namespace Memory
         }
         
 
-        private void ClickImage(object sender, EventArgs e)
+        private void ClickImage(object sender, EventArgs e) // définit le déroulement du jeu 
         {
             if (!AllowClick) return;
 
@@ -151,18 +152,20 @@ namespace Memory
             if (PictureBoxes.Any(p => p.Visible)) return;
             timer.Stop();
 
-            MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text));
+            MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text) + " points ");
 
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
-            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P) VALUES (@temps)", Connection);
-            var Temps = new SqlParameter("@temps", (30 - Time));
-            InsererTempsFin.Parameters.Add(Temps);
+            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P,Score_P) VALUES (@temps,@score)", Connection);
+            var temps = new SqlParameter("@temps", (60 - Time));
+            var scores = new SqlParameter("@score", ScoreCounter.Text);
+            InsererTempsFin.Parameters.Add(temps);
+            InsererTempsFin.Parameters.Add(scores);
             InsererTempsFin.ExecuteNonQuery();
             Connection.Close();
         }
 
-        private void StartGame(object sender, EventArgs e)
+        private void StartGame(object sender, EventArgs e) // lancement du jeu
         {
             ScoreCounter.Text = "0";
             AllowClick = true;
@@ -175,7 +178,7 @@ namespace Memory
             
         }
 
-        private void ButtonRetour(object sender, EventArgs e)
+        private void ButtonRetour(object sender, EventArgs e) // bouton retour a la page identification
         {
             PageIdentification pageIdentification = new PageIdentification();
             pageIdentification.Show();
