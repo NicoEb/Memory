@@ -65,18 +65,13 @@ namespace Memory
                 Connection.Open();
                 SqlCommand FirstInsert =
                      new SqlCommand("INSERT INTO Joueurs (Nom_J, Prenom_J, Adresse_J , Sexe_J , Pseudo_J , MdP_J) VALUES (@Nom,@Prenom,@Adresse,@Sexe,@Pseudo,@MdP)", Connection);
-                var NomParameter = new SqlParameter("@Nom", Nom.Text);
-                var PrenomParameter = new SqlParameter("@Prenom", Prenom.Text);
-                var AdresseParameter = new SqlParameter("@Adresse", Adresse.Text);
-                var SexeParameter = new SqlParameter("@Sexe", Sexe.Text);
-                var PseudoParameter = new SqlParameter("@Pseudo", Pseudo.Text);
-                var MdpParameter = new SqlParameter("@MdP", MdP.Text);
-                FirstInsert.Parameters.Add(NomParameter);
-                FirstInsert.Parameters.Add(PrenomParameter);
-                FirstInsert.Parameters.Add(AdresseParameter);
-                FirstInsert.Parameters.Add(SexeParameter);
-                FirstInsert.Parameters.Add(PseudoParameter);
-                FirstInsert.Parameters.Add(MdpParameter);
+               
+                FirstInsert.Parameters.AddWithValue("@Nom", Nom.Text);
+                FirstInsert.Parameters.AddWithValue("@Prenom", Prenom.Text);
+                FirstInsert.Parameters.AddWithValue("@Adresse", Adresse.Text);
+                FirstInsert.Parameters.AddWithValue("@Sexe", Sexe.Text);
+                FirstInsert.Parameters.AddWithValue("@Pseudo", Pseudo.Text);
+                FirstInsert.Parameters.AddWithValue("@MdP", MdP.Text);
                 FirstInsert.ExecuteNonQuery();
                 Connection.Close();
 
@@ -135,9 +130,90 @@ namespace Memory
 
         private void ButtonDebutant(object sender, EventArgs e) //lance le jeu en mode débutant
         {
+
+            
             JeuDebutant jeu = new JeuDebutant();
+            ConnexionSelonNiveau();
             jeu.Show();
             Hide();
+        }
+
+
+        public void ConnexionSelonNiveau()
+        {
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlDataAdapter Select = new SqlDataAdapter("Select Pseudo_J, MdP_J From Joueurs where Pseudo_J ='" + textBoxPseudo.Text + "' and MdP_J ='" + textBoxMdP.Text + "'", Connection);
+
+
+            int idGame = 0;
+            SqlCommand InsererIDPartie = Connection.CreateCommand();
+            InsererIDPartie.CommandText = "Select id_J From Joueurs where Pseudo_J ='" + textBoxPseudo.Text + "' and MdP_J ='" + textBoxMdP.Text + "'";
+            idGame = (int)InsererIDPartie.ExecuteScalar();
+
+            SqlCommand InsererIDenPartie = new SqlCommand("INSERT INTO Partie(FK_Id_J) VALUES (@idPlayer)", Connection);
+             InsererIDenPartie.Parameters.AddWithValue("@idPlayer", idGame);
+             InsererIDenPartie.ExecuteNonQuery();
+
+
+
+
+
+            DataTable Dte = new DataTable();
+            Select.Fill(Dte);
+            if (Dte.Rows.Count == 1)
+            {
+                MessageBox.Show("connection ok vous pouvez jouer");
+
+            }
+            else
+            {
+                MessageBox.Show("Veuillez crée votre pseudo et mot de passe");
+                textBox1.Text = "";
+                textBox2.Text = "";
+            }
+
+
+            Connection.Close();
+        }
+
+
+
+        public void buttonAccès_Click(object sender, EventArgs e)
+        {
+            /*SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlDataAdapter Select = new SqlDataAdapter("Select Pseudo_J, MdP_J From Joueurs where Pseudo_J ='" + textBoxPseudo.Text + "' and MdP_J ='" + textBoxMdP.Text + "'", Connection);
+
+            
+            int idGame = 0;
+            SqlCommand InsererIDPartie = Connection.CreateCommand();
+            InsererIDPartie.CommandText="Select id_J From Joueurs where Pseudo_J ='" + textBoxPseudo.Text + "' and MdP_J ='" + textBoxMdP.Text + "'";
+            idGame = (int)InsererIDPartie.ExecuteScalar();
+
+            SqlCommand InsererIDenPartie = new SqlCommand("INSERT INTO Partie(FK_Id_J) VALUES (@idPlayer)", Connection);
+            InsererIDenPartie.Parameters.AddWithValue("@idPlayer", idGame);
+            InsererIDenPartie.ExecuteNonQuery();
+
+
+
+            DataTable Dte = new DataTable();
+            Select.Fill(Dte);
+            if (Dte.Rows.Count == 1)
+            {
+                MessageBox.Show("connection ok vous pouvez jouer");
+                
+            }
+            else
+            {
+                MessageBox.Show("Veuillez crée votre pseudo et mot de passe");
+                textBox1.Text = "";
+                textBox2.Text = "";
+            }
+
+
+            Connection.Close();*/
+
         }
     }
 

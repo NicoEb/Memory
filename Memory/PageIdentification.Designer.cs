@@ -49,6 +49,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxMdP = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxPseudo = new System.Windows.Forms.TextBox();
+            this.Connexion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Nom
@@ -231,12 +236,59 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.ButtonDebutant);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(533, 289);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Mot de passe";
+            // 
+            // textBoxMdP
+            // 
+            this.textBoxMdP.Location = new System.Drawing.Point(610, 283);
+            this.textBoxMdP.Name = "textBoxMdP";
+            this.textBoxMdP.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMdP.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(533, 231);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Pseudo";
+            // 
+            // textBoxPseudo
+            // 
+            this.textBoxPseudo.Location = new System.Drawing.Point(610, 225);
+            this.textBoxPseudo.Name = "textBoxPseudo";
+            this.textBoxPseudo.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPseudo.TabIndex = 21;
+            // 
+            // Connexion
+            // 
+            this.Connexion.Location = new System.Drawing.Point(635, 333);
+            this.Connexion.Name = "Connexion";
+            this.Connexion.Size = new System.Drawing.Size(75, 23);
+            this.Connexion.TabIndex = 25;
+            this.Connexion.Text = "Connexion";
+            this.Connexion.UseVisualStyleBackColor = true;
+            this.Connexion.Click += new System.EventHandler(this.buttonAccès_Click);
+            // 
             // PageIdentification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Connexion);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBoxMdP);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBoxPseudo);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -288,5 +340,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxMdP;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxPseudo;
+        private System.Windows.Forms.Button Connexion;
     }
 }

@@ -158,7 +158,7 @@ namespace Memory
 
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
-            SqlCommand InsererTempsFin = new SqlCommand ("INSERT INTO Partie(Fin_P,Score_P) VALUES (@temps,@score)",Connection);
+            SqlCommand InsererTempsFin = new SqlCommand ("INSERT INTO Partie(Temps_P,Score_P) VALUES (@temps,@score)",Connection);
             var temps = new SqlParameter("@temps", (60 - Time));
             var scores = new SqlParameter("@score", ScoreCounter.Text);
             InsererTempsFin.Parameters.Add(temps);

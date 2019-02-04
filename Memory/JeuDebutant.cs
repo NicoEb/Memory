@@ -119,7 +119,7 @@ namespace Memory
         }
         
 
-        private void ClickImage(object sender, EventArgs e) // définit le déroulement du jeu 
+        public void ClickImage(object sender, EventArgs e) // définit le déroulement du jeu 
         {
             if (!AllowClick) return;
 
@@ -154,16 +154,20 @@ namespace Memory
 
             MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text) + " points ");
 
+            // insère le temps et score de la partie en base de donnée
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
-            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Fin_P,Score_P) VALUES (@temps,@score)", Connection);
-            var temps = new SqlParameter("@temps", (60 - Time));
+            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Temps_P,Score_P) VALUES (@temps,@score)", Connection);
+            var temps = new SqlParameter("@temps", (30 - Time));
             var scores = new SqlParameter("@score", ScoreCounter.Text);
             InsererTempsFin.Parameters.Add(temps);
             InsererTempsFin.Parameters.Add(scores);
             InsererTempsFin.ExecuteNonQuery();
             Connection.Close();
+
         }
+
+       
 
         private void StartGame(object sender, EventArgs e) // lancement du jeu
         {
