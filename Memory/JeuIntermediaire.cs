@@ -13,10 +13,13 @@ namespace Memory
 {
     public partial class JeuIntermediaire : Form
     {
-       
-        
 
-            static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
+        private int idJoueur;
+
+        public int IdJoueur { get => idJoueur; set => idJoueur = value; }
+
+
+        static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
             bool AllowClick = false;
             PictureBox FirstGuess;
@@ -25,11 +28,12 @@ namespace Memory
             int Time = 45;
             Timer timer = new Timer { Interval = 1000 };
 
-            public JeuIntermediaire()
+            public JeuIntermediaire(int idJoueur)
             {
                 InitializeComponent();
+                IdJoueur = idJoueur;
 
-            }
+        }
             private PictureBox[] PictureBoxes
             {
                 get { return Controls.OfType<PictureBox>().ToArray(); }

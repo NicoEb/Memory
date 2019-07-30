@@ -14,9 +14,11 @@ namespace Memory
     public partial class JeuDebutant : Form
     {
 
+        private int idJoueur;
 
+        public int IdJoueur { get => idJoueur; set => idJoueur = value; }
 
-        static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
+        static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
         bool AllowClick = false; // ce booléen autorise de cliquer
         PictureBox FirstGuess; // objet premiere selection
@@ -26,10 +28,10 @@ namespace Memory
         
         Timer timer = new Timer { Interval = 1000 }; // intervalle de 1000 millisecondes ou 1 seconde pour le timer
 
-        public JeuDebutant() // création de la classe jeu débutant
+        public JeuDebutant(int idJoueur) // création de la classe jeu débutant
         {
             InitializeComponent();
-
+            IdJoueur = idJoueur;
         }
         private PictureBox[] PictureBoxes // on ajoute les pictures box a un tableau
         {

@@ -14,7 +14,7 @@ namespace JeuxMemory
 {
     public partial class Admin : Form
     {
-        static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
+        static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
         public Admin() // Remplit combobox avec liste des joueurs qui sont en BDD
         {

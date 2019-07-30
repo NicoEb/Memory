@@ -14,12 +14,15 @@ namespace Memory
 {
     public partial class PageIdentification : Form
     {
+        private int idJoueur;
+
+        public int IdJoueur { get => idJoueur; set => idJoueur = value; }
         public PageIdentification()
         {
             InitializeComponent();
         }
 
-        static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
+        static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
 
        
@@ -113,7 +116,7 @@ namespace Memory
         {
 
 
-            JeuExpert jeu = new JeuExpert();
+            JeuExpert jeu = new JeuExpert(IdJoueur);
             jeu.Show();
             Hide();
 
@@ -122,7 +125,7 @@ namespace Memory
         private void ButtonIntermediaire(object sender, EventArgs e) // lance le jeu en mode intermediaire
         {
 
-            JeuIntermediaire jeu = new JeuIntermediaire();
+            JeuIntermediaire jeu = new JeuIntermediaire(IdJoueur);
             jeu.Show();
             Hide();
         }
@@ -131,59 +134,53 @@ namespace Memory
         {
 
             
-            JeuDebutant jeu = new JeuDebutant();
+            JeuDebutant jeu = new JeuDebutant(IdJoueur);
             //ConnexionSelonNiveau();
             jeu.Show();
             Hide();
         }
 
-
-
-
-        public void buttonAccès_Click(object sender, EventArgs e)
+        
+        private void Connexion_Click(object sender, EventArgs e)
         {
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
-            Connection.Open();
-            SqlDataAdapter Select = new SqlDataAdapter("Select Pseudo_J, MdP_J From Joueurs where Pseudo_J ='" + textBoxPseudo.Text + "' and MdP_J ='" + textBoxMdP.Text + "'", Connection);
 
-            
-            //int idGame = 0;
-            //SqlCommand InsererIDPartie = Connection.CreateCommand();
-            //InsererIDPartie.CommandText="Select id_J From Joueurs where Pseudo_J ='" + textBoxPseudo.Text + "' and MdP_J ='" + textBoxMdP.Text + "'";
-            //idGame = (int)InsererIDPartie.ExecuteScalar();
-
-            //SqlCommand InsererIDenPartie = new SqlCommand("INSERT INTO Partie(FK_Id_J) VALUES (@idPlayer)", Connection);
-            //InsererIDenPartie.Parameters.AddWithValue("@idPlayer", idGame);
-            //InsererIDenPartie.ExecuteNonQuery();
-
-
-
-            DataTable Dte = new DataTable();
-            Select.Fill(Dte);
-            if (Dte.Rows.Count == 1)
+            try
             {
-                //MessageBox.Show("connection ok vous pouvez jouer");
+                Connection.Open();
 
-                int idGame = 0;
-                SqlCommand InsererIDPartie = Connection.CreateCommand();
-                InsererIDPartie.CommandText = "Select id_J From Joueurs where Pseudo_J ='" + textBoxPseudo.Text + "' and MdP_J ='" + textBoxMdP.Text + "'";
-                idGame = (int)InsererIDPartie.ExecuteScalar();
+                SqlCommand command = Connection.CreateCommand();
+                command.CommandText = "SELECT id_J FROM Joueurs WHERE Pseudo_J = @pseudo AND MdP_J = @password";
 
-                SqlCommand InsererIDenPartie = new SqlCommand("INSERT INTO Partie(FK_Id_J) VALUES (@idPlayer)", Connection);
-                InsererIDenPartie.Parameters.AddWithValue("@idPlayer", idGame);
-                InsererIDenPartie.ExecuteNonQuery();
-                MessageBox.Show("connection ok vous pouvez jouer");
+                command.Parameters.AddWithValue("@pseudo", textBoxPseudo.Text);
+                command.Parameters.AddWithValue("@password", textBoxMdP.Text);
 
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+
+                    if (reader.HasRows)
+                    {
+                        do
+                        {
+                            IdJoueur = Convert.ToInt32(reader[0]);
+                        } while (reader.Read());
+
+                        MessageBox.Show(Joueur.AfficheMessageConnexOK());
+                    }
+                    else
+                    {
+                        MessageBox.Show(Joueur.AfficheMessageCréerPseudo());
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                    }
+                }
+                Connection.Close();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Veuillez crée votre pseudo et mot de passe");
-                textBox1.Text = "";
-                textBox2.Text = "";
+                MessageBox.Show(ex.Message);
             }
-
-
-            Connection.Close();
 
         }
     }

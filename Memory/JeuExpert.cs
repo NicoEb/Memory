@@ -15,8 +15,10 @@ namespace Memory
     
     public partial class JeuExpert : Form
     {
+        private int idJoueur;
 
-        static string SqlConnectionString = @"Server=.\SQLExpress;Database=memoryBDD;Trusted_Connection=Yes";
+        public int IdJoueur { get => idJoueur; set => idJoueur = value; }
+        static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
         bool AllowClick = false;
         PictureBox FirstGuess;
@@ -28,6 +30,7 @@ namespace Memory
         public JeuExpert()
         {
             InitializeComponent();
+            IdJoueur = idJoueur;
 
         }
         private PictureBox[] PictureBoxes

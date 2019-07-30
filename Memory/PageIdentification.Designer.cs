@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Adresse = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Sexe = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Pseudo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,6 +53,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxPseudo = new System.Windows.Forms.TextBox();
             this.Connexion = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Nom
@@ -93,9 +94,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(92, 167);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Adresse";
+            this.label3.Text = "E-Mail";
             // 
             // Adresse
             // 
@@ -112,13 +113,6 @@
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Sexe";
-            // 
-            // Sexe
-            // 
-            this.Sexe.Location = new System.Drawing.Point(169, 219);
-            this.Sexe.Name = "Sexe";
-            this.Sexe.Size = new System.Drawing.Size(100, 20);
-            this.Sexe.TabIndex = 6;
             // 
             // label5
             // 
@@ -139,7 +133,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(92, 333);
+            this.label6.Location = new System.Drawing.Point(74, 330);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 13);
             this.label6.TabIndex = 11;
@@ -204,7 +198,6 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Authentification";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ButtonAuthentification);
             // 
             // button3
             // 
@@ -276,7 +269,27 @@
             this.Connexion.TabIndex = 25;
             this.Connexion.Text = "Connexion";
             this.Connexion.UseVisualStyleBackColor = true;
-            this.Connexion.Click += new System.EventHandler(this.buttonAccès_Click);
+            this.Connexion.Click += new System.EventHandler(this.Connexion_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(169, 220);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(60, 17);
+            this.checkBox1.TabIndex = 26;
+            this.checkBox1.Text = "Femme";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(256, 220);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(62, 17);
+            this.checkBox2.TabIndex = 27;
+            this.checkBox2.Text = "Homme";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // PageIdentification
             // 
@@ -284,6 +297,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Connexion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxMdP);
@@ -303,7 +318,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Pseudo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Sexe);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Adresse);
             this.Controls.Add(this.label2);
@@ -326,7 +340,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Adresse;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Sexe;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Pseudo;
         private System.Windows.Forms.Label label6;
@@ -345,5 +358,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxPseudo;
         private System.Windows.Forms.Button Connexion;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
