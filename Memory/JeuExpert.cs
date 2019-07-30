@@ -27,7 +27,7 @@ namespace Memory
         int Time = 60;
         Timer timer = new Timer { Interval = 1000 };
 
-        public JeuExpert()
+        public JeuExpert(int idJoueur)
         {
             InitializeComponent();
             IdJoueur = idJoueur;

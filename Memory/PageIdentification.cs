@@ -44,7 +44,7 @@ namespace Memory
                 MessageBox.Show("veuillez entrez votre Adresse");
             }
             else
-               if (Sexe.Text != "homme" && Sexe.Text!="femme")
+               if (femme = false && homme = true)
             {
                 MessageBox.Show("veuillez entrez homme ou femme");
             }
@@ -71,7 +71,7 @@ namespace Memory
                 FirstInsert.Parameters.AddWithValue("@Nom", Nom.Text);
                 FirstInsert.Parameters.AddWithValue("@Prenom", Prenom.Text);
                 FirstInsert.Parameters.AddWithValue("@Adresse", Adresse.Text);
-                FirstInsert.Parameters.AddWithValue("@Sexe", Sexe.Text);
+                FirstInsert.Parameters.AddWithValue("@Sexe", );
                 FirstInsert.Parameters.AddWithValue("@Pseudo", Pseudo.Text);
                 FirstInsert.Parameters.AddWithValue("@MdP", MdP.Text);
                 FirstInsert.ExecuteNonQuery();
@@ -82,13 +82,13 @@ namespace Memory
                 Nom.Text = "";
                 Prenom.Text = "";
                 Adresse.Text = "";
-                Sexe.Text = "";
+                homme.Text = "";
                 Pseudo.Text = "";
                 MdP.Text = "";
 
 
-            }            
-
+            }
+            DataAcces.InsererJoueur();
         }
 
         private void ButtonAdministrateur(object sender, EventArgs e) // permet de s'identifier en tant qu'admin
@@ -166,11 +166,11 @@ namespace Memory
                             IdJoueur = Convert.ToInt32(reader[0]);
                         } while (reader.Read());
 
-                        MessageBox.Show(Joueur.AfficheMessageConnexOK());
+                        MessageBox.Show("Connexion ok");
                     }
                     else
                     {
-                        MessageBox.Show(Joueur.AfficheMessageCréerPseudo());
+                        MessageBox.Show("Veuillez crée votre compte");
                         textBox1.Text = "";
                         textBox2.Text = "";
                     }

@@ -52,6 +52,7 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAcces.cs" />
     <Compile Include="JeuDebutant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,7 @@
     <Compile Include="JeuIntermediaire.Designer.cs">
       <DependentUpon>JeuIntermediaire.cs</DependentUpon>
     </Compile>
+    <Compile Include="Joueurs.cs" />
     <Compile Include="PageIdentification.cs">
       <SubType>Form</SubType>
     </Compile>

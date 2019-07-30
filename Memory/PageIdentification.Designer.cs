@@ -53,8 +53,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxPseudo = new System.Windows.Forms.TextBox();
             this.Connexion = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.femme = new System.Windows.Forms.CheckBox();
+            this.homme = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Nom
@@ -271,25 +271,25 @@
             this.Connexion.UseVisualStyleBackColor = true;
             this.Connexion.Click += new System.EventHandler(this.Connexion_Click);
             // 
-            // checkBox1
+            // femme
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(169, 220);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 17);
-            this.checkBox1.TabIndex = 26;
-            this.checkBox1.Text = "Femme";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.femme.AutoSize = true;
+            this.femme.Location = new System.Drawing.Point(169, 220);
+            this.femme.Name = "femme";
+            this.femme.Size = new System.Drawing.Size(60, 17);
+            this.femme.TabIndex = 26;
+            this.femme.Text = "Femme";
+            this.femme.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // homme
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(256, 220);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(62, 17);
-            this.checkBox2.TabIndex = 27;
-            this.checkBox2.Text = "Homme";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.homme.AutoSize = true;
+            this.homme.Location = new System.Drawing.Point(256, 220);
+            this.homme.Name = "homme";
+            this.homme.Size = new System.Drawing.Size(62, 17);
+            this.homme.TabIndex = 27;
+            this.homme.Text = "Homme";
+            this.homme.UseVisualStyleBackColor = true;
             // 
             // PageIdentification
             // 
@@ -297,8 +297,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.homme);
+            this.Controls.Add(this.femme);
             this.Controls.Add(this.Connexion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxMdP);
@@ -358,7 +358,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxPseudo;
         private System.Windows.Forms.Button Connexion;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox femme;
+        private System.Windows.Forms.CheckBox homme;
     }
 }
