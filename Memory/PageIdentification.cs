@@ -1,13 +1,7 @@
 ﻿using JeuxMemory;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Memory
@@ -24,37 +18,35 @@ namespace Memory
 
         static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
-
-       
-
-        private void ButtonAuthentification(object sender, EventArgs e) // permet de créer un joueur et de l'envoyer dans la base de données
+         private void ButtonAuthentification(object sender, EventArgs e)
         {
+
             if (Nom.Text == "")
             {
                 MessageBox.Show("veuillez entrez votre nom");
             }
             else
-               if (Prenom.Text == "")
+            if (Prenom.Text == "")
             {
                 MessageBox.Show("veuillez entrez votre prénom");
             }
             else
-               if (Adresse.Text == "")
+            if (Adresse.Text == "")
             {
-                MessageBox.Show("veuillez entrez votre Adresse");
+                MessageBox.Show("veuillez entrez votre Adresse email");
             }
             else
-               if (femme = false && homme = true)
+            if (Sexe.Text != "homme" && Sexe.Text != "femme")
             {
                 MessageBox.Show("veuillez entrez homme ou femme");
             }
             else
-               if (Pseudo.Text == "")
+            if (Pseudo.Text == "")
             {
                 MessageBox.Show("veuillez entrez un pseudo");
             }
             else
-               if (MdP.Text == "")
+            if (MdP.Text == "")
             {
                 MessageBox.Show("veuillez entrez un mot de passe");
             }
@@ -71,7 +63,7 @@ namespace Memory
                 FirstInsert.Parameters.AddWithValue("@Nom", Nom.Text);
                 FirstInsert.Parameters.AddWithValue("@Prenom", Prenom.Text);
                 FirstInsert.Parameters.AddWithValue("@Adresse", Adresse.Text);
-                FirstInsert.Parameters.AddWithValue("@Sexe", );
+                FirstInsert.Parameters.AddWithValue("@Sexe", Sexe.Text);
                 FirstInsert.Parameters.AddWithValue("@Pseudo", Pseudo.Text);
                 FirstInsert.Parameters.AddWithValue("@MdP", MdP.Text);
                 FirstInsert.ExecuteNonQuery();
@@ -82,13 +74,12 @@ namespace Memory
                 Nom.Text = "";
                 Prenom.Text = "";
                 Adresse.Text = "";
-                homme.Text = "";
+                Sexe.Text = "";
                 Pseudo.Text = "";
                 MdP.Text = "";
 
 
             }
-            DataAcces.InsererJoueur();
         }
 
         private void ButtonAdministrateur(object sender, EventArgs e) // permet de s'identifier en tant qu'admin
@@ -112,35 +103,9 @@ namespace Memory
             }
         }
 
-        private void ButtonExpert(object sender, EventArgs e) // lance le jeu en mode expert
-        {
+     
 
 
-            JeuExpert jeu = new JeuExpert(IdJoueur);
-            jeu.Show();
-            Hide();
-
-        }
-
-        private void ButtonIntermediaire(object sender, EventArgs e) // lance le jeu en mode intermediaire
-        {
-
-            JeuIntermediaire jeu = new JeuIntermediaire(IdJoueur);
-            jeu.Show();
-            Hide();
-        }
-
-        private void ButtonDebutant(object sender, EventArgs e) //lance le jeu en mode débutant
-        {
-
-            
-            JeuDebutant jeu = new JeuDebutant(IdJoueur);
-            //ConnexionSelonNiveau();
-            jeu.Show();
-            Hide();
-        }
-
-        
         private void Connexion_Click(object sender, EventArgs e)
         {
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
@@ -167,6 +132,9 @@ namespace Memory
                         } while (reader.Read());
 
                         MessageBox.Show("Connexion ok");
+                        PageChoixNiveaux jeu = new PageChoixNiveaux(IdJoueur);
+                        jeu.Show();
+                        Hide();
                     }
                     else
                     {
@@ -183,6 +151,8 @@ namespace Memory
             }
 
         }
+
+       
     }
 
 }

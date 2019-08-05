@@ -52,7 +52,6 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAcces.cs" />
     <Compile Include="JeuDebutant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +71,18 @@
       <DependentUpon>JeuIntermediaire.cs</DependentUpon>
     </Compile>
     <Compile Include="Joueurs.cs" />
+    <Compile Include="PageAccueil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageAccueil.Designer.cs">
+      <DependentUpon>PageAccueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageChoixNiveaux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageChoixNiveaux.Designer.cs">
+      <DependentUpon>PageChoixNiveaux.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageIdentification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JeuDebutant.resx">
       <DependentUpon>JeuDebutant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageAccueil.resx">
+      <DependentUpon>PageAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageChoixNiveaux.resx">
+      <DependentUpon>PageChoixNiveaux.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageIdentification.resx">
       <DependentUpon>PageIdentification.cs</DependentUpon>

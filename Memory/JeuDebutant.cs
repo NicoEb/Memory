@@ -157,11 +157,14 @@ namespace Memory
             MessageBox.Show(" Bravo vous avez gagné en " + Time.ToString() + " secondes avec un score de " + Convert.ToString(ScoreCounter.Text) + " points ");
 
             // insère le temps et score de la partie en base de donnée
+
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
-            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Temps_P,Score_P) VALUES (@temps,@score)", Connection);
+            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Temps,Score,FK_Id_J) VALUES (@temps,@score,@idPlayer)", Connection);
+
             InsererTempsFin.Parameters.AddWithValue("@temps", (30 - Time));
             InsererTempsFin.Parameters.AddWithValue("@score", ScoreCounter.Text);
+            InsererTempsFin.Parameters.AddWithValue("@idPlayer", IdJoueur);
             InsererTempsFin.ExecuteNonQuery();
             Connection.Close();
 
