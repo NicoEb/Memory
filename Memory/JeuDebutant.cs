@@ -154,7 +154,7 @@ namespace Memory
             {
                 AllowClick = false;
                 ClickTimer.Start();
-                ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
+                ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 5);
             }
             FirstGuess = null;
             if (PictureBoxes.Any(p => p.Visible)) return;

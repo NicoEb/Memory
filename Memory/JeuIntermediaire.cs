@@ -18,6 +18,10 @@ namespace Memory
 
         public int IdJoueur { get => idJoueur; set => idJoueur = value; }
 
+        private int idNiveaux;
+        public int IdNiveaux { get => idNiveaux; set => idNiveaux = value; }
+
+
 
         static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
@@ -28,10 +32,11 @@ namespace Memory
             int Time = 45;
             Timer timer = new Timer { Interval = 1000 };
 
-            public JeuIntermediaire(int idJoueur)
+            public JeuIntermediaire(int idJoueur, int idNiveaux)
             {
                 InitializeComponent();
                 IdJoueur = idJoueur;
+                IdNiveaux = idNiveaux;
 
         }
             private PictureBox[] PictureBoxes
@@ -150,7 +155,7 @@ namespace Memory
             {
                 AllowClick = false;
                 ClickTimer.Start();
-                ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
+                ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 5);
             }
             FirstGuess = null;
             if (PictureBoxes.Any(p => p.Visible)) return;
@@ -160,11 +165,12 @@ namespace Memory
 
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
-            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Temps,Score,FK_Id_J) VALUES (@temps,@score,@idPlayer)", Connection);
+            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Temps,Score,FK_Id_J,FK_Id_D) VALUES (@temps,@score,@idPlayer,@idNiveaux)", Connection);
             
             InsererTempsFin.Parameters.AddWithValue("@temps",(45 - Time));
             InsererTempsFin.Parameters.AddWithValue("@score", ScoreCounter.Text);
             InsererTempsFin.Parameters.AddWithValue("@idPlayer", IdJoueur);
+            InsererTempsFin.Parameters.AddWithValue("@idNiveaux", IdNiveaux);
             InsererTempsFin.ExecuteNonQuery();
             Connection.Close();
         }

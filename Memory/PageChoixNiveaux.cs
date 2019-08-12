@@ -35,18 +35,9 @@ namespace Memory
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
 
             Connection.Open();
-            SqlCommand command = new SqlCommand("SELECT Id_D FROM Niveaux WHERE (Difficulte 'debutant') = @idNiveaux", Connection);
-            command.Parameters.AddWithValue("@idNiveaux",IdNiveaux);
-            
-            SqlDataReader reader = command.ExecuteReader();
-                
-            reader.Read();
-
-
-           IdNiveaux = reader.GetInt32(0);
-
-           
-
+            SqlCommand command = new SqlCommand("SELECT Id_D  FROM Niveaux WHERE Difficulte LIKE '%debutant%' ", Connection);
+        
+            IdNiveaux = (int)command.ExecuteScalar();
 
             JeuDebutant jeu = new JeuDebutant(IdJoueur,IdNiveaux);
             jeu.Show();
@@ -55,14 +46,26 @@ namespace Memory
 
         private void ButtonIntermediaire_Click(object sender, EventArgs e)
         {
-            JeuIntermediaire jeu = new JeuIntermediaire(IdJoueur);
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+
+            Connection.Open();
+            SqlCommand command = new SqlCommand("SELECT Id_D  FROM Niveaux WHERE Difficulte LIKE '%intermediaire%' ", Connection);
+
+            IdNiveaux = (int)command.ExecuteScalar();
+            JeuIntermediaire jeu = new JeuIntermediaire(IdJoueur,IdNiveaux);
             jeu.Show();
             Hide();
         }
 
         private void ButtonExpert_Click(object sender, EventArgs e)
         {
-            JeuExpert jeu = new JeuExpert(IdJoueur);
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+
+            Connection.Open();
+            SqlCommand command = new SqlCommand("SELECT Id_D  FROM Niveaux WHERE Difficulte LIKE '%expert%' ", Connection);
+
+            IdNiveaux = (int)command.ExecuteScalar();
+            JeuExpert jeu = new JeuExpert(IdJoueur,IdNiveaux);
             jeu.Show();
             Hide();
         }
