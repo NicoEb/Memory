@@ -13,10 +13,13 @@ namespace Memory
 {
     public partial class JeuDebutant : Form
     {
-
+       
         private int idJoueur;
 
         public int IdJoueur { get => idJoueur; set => idJoueur = value; }
+
+        private int idNiveaux;
+        public int IdNiveaux { get => idNiveaux; set => idNiveaux = value; }
 
         static string SqlConnectionString = @"Server=Admin-PC;Database=memoryBDD;Trusted_Connection=Yes";
 
@@ -28,10 +31,11 @@ namespace Memory
         
         Timer timer = new Timer { Interval = 1000 }; // intervalle de 1000 millisecondes ou 1 seconde pour le timer
 
-        public JeuDebutant(int idJoueur) // création de la classe jeu débutant
+        public JeuDebutant(int idJoueur, int idNiveaux) // création de la classe jeu débutant
         {
             InitializeComponent();
             IdJoueur = idJoueur;
+            IdNiveaux = idNiveaux;
         }
         private PictureBox[] PictureBoxes // on ajoute les pictures box a un tableau
         {
@@ -52,6 +56,8 @@ namespace Memory
                 };
             }
         }
+
+       
 
         private void StartGameTimer() // démarre le timer du jeu et affiche le temps restant
         {
@@ -160,11 +166,12 @@ namespace Memory
 
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
-            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Temps,Score,FK_Id_J) VALUES (@temps,@score,@idPlayer)", Connection);
+            SqlCommand InsererTempsFin = new SqlCommand("INSERT INTO Partie(Temps,Score,FK_Id_J,FK_Id_D) VALUES (@temps,@score,@idPlayer,@idNiveaux)", Connection);
 
             InsererTempsFin.Parameters.AddWithValue("@temps", (30 - Time));
             InsererTempsFin.Parameters.AddWithValue("@score", ScoreCounter.Text);
             InsererTempsFin.Parameters.AddWithValue("@idPlayer", IdJoueur);
+            InsererTempsFin.Parameters.AddWithValue("@idNiveaux", IdNiveaux);
             InsererTempsFin.ExecuteNonQuery();
             Connection.Close();
 
