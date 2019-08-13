@@ -36,7 +36,7 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(162, 176);
             this.button5.Name = "button5";
@@ -48,7 +48,7 @@
             // 
             // buttonIntermediaire
             // 
-            this.buttonIntermediaire.BackColor = System.Drawing.Color.Green;
+            this.buttonIntermediaire.BackColor = System.Drawing.Color.Lime;
             this.buttonIntermediaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIntermediaire.Location = new System.Drawing.Point(332, 175);
             this.buttonIntermediaire.Name = "buttonIntermediaire";
@@ -60,7 +60,7 @@
             // 
             // buttonExpert
             // 
-            this.buttonExpert.BackColor = System.Drawing.Color.DarkRed;
+            this.buttonExpert.BackColor = System.Drawing.Color.Red;
             this.buttonExpert.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExpert.Location = new System.Drawing.Point(524, 175);
             this.buttonExpert.Name = "buttonExpert";
@@ -78,9 +78,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(172, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(457, 39);
+            this.label1.Size = new System.Drawing.Size(440, 39);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Veuillez choissir votre niveau";
+            this.label1.Text = "Veuillez choisir votre niveau";
             // 
             // PageChoixNiveaux
             // 

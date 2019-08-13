@@ -45,6 +45,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ScoreCounter = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -182,56 +183,74 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(176, 121);
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(463, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 18);
+            this.label1.Size = new System.Drawing.Size(57, 27);
             this.label1.TabIndex = 15;
             this.label1.Text = "00:45";
             // 
             // ButtonJouer
             // 
+            this.ButtonJouer.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ButtonJouer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonJouer.Location = new System.Drawing.Point(170, 64);
             this.ButtonJouer.Name = "ButtonJouer";
             this.ButtonJouer.Size = new System.Drawing.Size(100, 36);
             this.ButtonJouer.TabIndex = 14;
             this.ButtonJouer.Text = "Jouer";
-            this.ButtonJouer.UseVisualStyleBackColor = true;
+            this.ButtonJouer.UseVisualStyleBackColor = false;
             this.ButtonJouer.Click += new System.EventHandler(this.StartGame);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(638, 64);
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(607, 64);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 36);
+            this.button2.Size = new System.Drawing.Size(100, 36);
             this.button2.TabIndex = 28;
             this.button2.Text = "Retour";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.ButtonRetour);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(417, 87);
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(394, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(71, 27);
             this.label2.TabIndex = 43;
             this.label2.Text = "Score :";
             // 
             // ScoreCounter
             // 
             this.ScoreCounter.AutoSize = true;
-            this.ScoreCounter.Location = new System.Drawing.Point(465, 87);
+            this.ScoreCounter.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreCounter.Location = new System.Drawing.Point(463, 64);
             this.ScoreCounter.Name = "ScoreCounter";
-            this.ScoreCounter.Size = new System.Drawing.Size(13, 13);
+            this.ScoreCounter.Size = new System.Drawing.Size(22, 27);
             this.ScoreCounter.TabIndex = 42;
             this.ScoreCounter.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(383, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 27);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Temps :";
             // 
             // JeuIntermediaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Lime;
             this.ClientSize = new System.Drawing.Size(876, 586);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ScoreCounter);
             this.Controls.Add(this.button2);
@@ -287,5 +306,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ScoreCounter;
+        private System.Windows.Forms.Label label3;
     }
 }

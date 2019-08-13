@@ -8,9 +8,6 @@ namespace Memory
 {
     public partial class PageIdentification : Form
     {
-        private int idJoueur;
-
-        public int IdJoueur { get => idJoueur; set => idJoueur = value; }
         public PageIdentification()
         {
             InitializeComponent();
@@ -84,75 +81,22 @@ namespace Memory
 
         private void ButtonAdministrateur(object sender, EventArgs e) // permet de s'identifier en tant qu'admin
         {
-            SqlConnection Connection = new SqlConnection(SqlConnectionString);
-            SqlDataAdapter Select = new SqlDataAdapter("Select * From LoginAd where log ='" + textBox1.Text + "' and passowrd ='" + textBox2.Text + "'", Connection);
-            DataTable Dt = new DataTable();
-            Select.Fill(Dt);
-            if (Dt.Rows.Count == 1)
-            {
-                Hide();
-                Admin admin = new Admin();
-                admin.Show();
-
-            }
-            else
-            {
-                MessageBox.Show("Veuillez entre bon login et mot de passe");
-                textBox1.Text = "";
-                textBox2.Text = "";
-            }
+            PageConnexionAdmin jeu = new PageConnexionAdmin();
+            jeu.Show();
+            Hide();
         }
 
-     
-
-
-        private void Connexion_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            SqlConnection Connection = new SqlConnection(SqlConnectionString);
-
-            try
-            {
-                Connection.Open();
-
-                SqlCommand command = Connection.CreateCommand();
-                command.CommandText = "SELECT id_J FROM Joueurs WHERE Pseudo_J = @pseudo AND MdP_J = @password";
-
-                command.Parameters.AddWithValue("@pseudo", textBoxPseudo.Text);
-                command.Parameters.AddWithValue("@password", textBoxMdP.Text);
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    reader.Read();
-
-                    if (reader.HasRows)
-                    {
-                        do
-                        {
-                            IdJoueur = Convert.ToInt32(reader[0]);
-                        } while (reader.Read());
-
-                        MessageBox.Show("Connexion ok");
-                        PageChoixNiveaux jeu = new PageChoixNiveaux(IdJoueur);
-                        jeu.Show();
-                        Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Veuillez crée votre compte");
-                        textBox1.Text = "";
-                        textBox2.Text = "";
-                    }
-                }
-                Connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            PageConnexion jeu = new PageConnexion();
+            jeu.Show();
+            Hide();
         }
 
-       
+
+
+
+
     }
 
 }
