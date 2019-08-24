@@ -32,11 +32,12 @@
             this.BtRetour = new System.Windows.Forms.Button();
             this.sup_J = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(359, 15);
+            this.button2.Location = new System.Drawing.Point(536, 72);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -57,7 +58,7 @@
             // sup_J
             // 
             this.sup_J.AutoSize = true;
-            this.sup_J.Location = new System.Drawing.Point(26, 23);
+            this.sup_J.Location = new System.Drawing.Point(203, 80);
             this.sup_J.Name = "sup_J";
             this.sup_J.Size = new System.Drawing.Size(86, 13);
             this.sup_J.TabIndex = 5;
@@ -66,16 +67,26 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(135, 15);
+            this.comboBox2.Location = new System.Drawing.Point(312, 72);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(180, 21);
             this.comboBox2.TabIndex = 4;
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(486, 230);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(234, 108);
+            this.listView1.TabIndex = 8;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 361);
+            this.ClientSize = new System.Drawing.Size(791, 467);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.BtRetour);
             this.Controls.Add(this.sup_J);
@@ -93,5 +104,6 @@
         private System.Windows.Forms.Button BtRetour;
         private System.Windows.Forms.Label sup_J;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ListView listView1;
     }
 }

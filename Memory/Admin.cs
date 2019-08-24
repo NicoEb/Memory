@@ -57,16 +57,32 @@ namespace JeuxMemory
             Connection.Open();
             SqlCommand FirstInsert =
                 new SqlCommand("DELETE FROM Joueurs WHERE Nom_J = @Nom AND Prenom_J = @Prenom", Connection);
-            var NomParameter = new SqlParameter("@Nom", Nom);
-            var PrenomParameter = new SqlParameter("@Prenom", Prenom);
-            FirstInsert.Parameters.Add(NomParameter);
-            FirstInsert.Parameters.Add(PrenomParameter);
+            FirstInsert.Parameters.AddWithValue("@Nom", Nom);
+            FirstInsert.Parameters.AddWithValue("@Prenom", Prenom);
             FirstInsert.ExecuteNonQuery();
 
             Connection.Close();
 
             MessageBox.Show("Utilisateur supprimé");
             comboBox2.Text ="";
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlCommand Cmd = new SqlCommand("select * from Joueurs ", Connection);
+            SqlDataReader Dr = Cmd.ExecuteReader();
+            listView1.Items.Clear();
+            while (Dr.Read())
+            {
+
+                listView1.Items.Add(Dr[1].ToString() + " " + Dr[2].ToString());
+            }
+            Dr.Close();
+            Connection.Close();
+
+
         }
     }
 }

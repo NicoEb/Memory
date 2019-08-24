@@ -33,6 +33,7 @@
             this.textBoxMdP = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxPseudo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Connexion
@@ -79,12 +80,23 @@
             this.textBoxPseudo.Size = new System.Drawing.Size(147, 20);
             this.textBoxPseudo.TabIndex = 26;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(130, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(574, 37);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Veuillez entrer votre pseudo et mot de passe";
+            // 
             // PageConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Connexion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxMdP);
@@ -104,5 +116,6 @@
         private System.Windows.Forms.TextBox textBoxMdP;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxPseudo;
+        private System.Windows.Forms.Label label1;
     }
 }

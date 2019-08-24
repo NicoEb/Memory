@@ -46,16 +46,19 @@ namespace Memory
                             IdJoueur = Convert.ToInt32(reader[0]);
                         } while (reader.Read());
 
-                        MessageBox.Show("Connexion ok");
+                        MessageBox.Show(" login et mot de passe ok ");
                         PageChoixNiveaux jeu = new PageChoixNiveaux(IdJoueur);
                         jeu.Show();
                         Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Veuillez crée votre compte");
+                        MessageBox.Show(" login et mot de passe incorrect, veuillez crée un compte pour pouvoir jouer !!!");
                         textBoxPseudo.Text = "";
                         textBoxMdP.Text = "";
+                        PageIdentification jeu = new PageIdentification();
+                        jeu.Show();
+                        Hide();
                     }
                 }
                 Connection.Close();
